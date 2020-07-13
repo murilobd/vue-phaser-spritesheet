@@ -1,0 +1,18 @@
+{
+	"name": "phaser-spritesheet",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"@tailwindcss/ui": "^0.3.1",
+		"tailwindcss": "^1.4.6",
+		"vue": "^3.0.0-beta.15"
+	},
+	"devDependencies": {
+		"@vue/compiler-sfc": "^3.0.0-beta.15",
+		"prettier": "^2.0.5",
+		"vite": "^1.0.0-beta.3"
+	}
+}
