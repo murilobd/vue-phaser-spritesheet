@@ -1,8 +1,9 @@
 import "phaser";
-import Demo from "./demo";
+import SpritesheetPreview from "./spritesheet-preview";
 
 export default function game(
 	containerId: string = "gameContainer",
+	img: string,
 ): Phaser.Game {
 	return new Phaser.Game({
 		type: Phaser.AUTO,
@@ -10,6 +11,6 @@ export default function game(
 		width: 800,
 		height: 400,
 		parent: containerId,
-		scene: Demo,
+		scene: new SpritesheetPreview(img),
 	});
 }
