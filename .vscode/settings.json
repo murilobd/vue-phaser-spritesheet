@@ -4,5 +4,6 @@
 	"vetur.format.enable": false,
 	"vetur.format.options.tabSize": 4,
 	"vetur.format.options.useTabs": true,
-	"vetur.format.defaultFormatter.ts": "prettier-tslint"
+	"vetur.format.defaultFormatter.ts": "prettier-tslint",
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

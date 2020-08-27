@@ -10,11 +10,12 @@ import { onMounted, defineComponent } from "vue";
 export default defineComponent({
 	name: "Game",
 	props: {
-		img: null
+		img: null,
+		spriteConfiguration: null
 	},
 	setup(props) {
 		onMounted(() => {
-			Game("gameContainer", props.img);
+			Game("gameContainer", props.img, props.spriteConfiguration);
 		});
 	},
 });
