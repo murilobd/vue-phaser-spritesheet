@@ -11,12 +11,11 @@ export default function game(
 		type: Phaser.AUTO,
 		backgroundColor: "#125555",
 		scale: {
-			mode: Phaser.Scale.RESIZE,
+			mode: Phaser.Scale.RESIZE, // resize canvas to fit available space
 			parent: containerId,
-			width: 800,
+			width: 400,
 			height: 400,
 		},
-		// parent: containerId,
 		scene: new SpritesheetPreview(img, spriteConfiguration),
 	});
 }

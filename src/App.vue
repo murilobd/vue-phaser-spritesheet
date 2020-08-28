@@ -1,5 +1,4 @@
 <template>
-	<!-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> -->
 	<div class="px-4 grid grid-flow-col" style="grid-template-columns: 1fr 2fr">
 		<div>
 			<div class="max-w-3xl mx-auto">
@@ -35,14 +34,22 @@
 					<app-toggle-input v-model="frame.yoyo">Yoyo</app-toggle-input>
 				</div>
 			</div>
-			<div class="mt-8 border-t border-gray-200 pt-5">
+			<div class="mt-8 border-t border-gray-200 pt-5 mb-4">
 				<div class="flex justify-end">
-					<span class="ml-3 inline-flex rounded-md shadow-sm">
+					<span class="ml-3 inline-flex rounded-md shadow-sm" v-if="showGame">
+						<button
+							type="button"
+							@click="reloadPage"
+							:class="`inline-flex justify-center py-2 px-4 border border-indigo-600 text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-100 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-200 transition duration-150 ease-in-out`"
+						>
+							Reset
+						</button>
+					</span>
+					<span class="ml-3 inline-flex rounded-md shadow-sm" v-if="!showGame">
 						<button
 							type="button"
 							@click="runGame"
-							:disabled="showGame"
-							:class="`inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out ${showGame && 'cursor-not-allowed'}`"
+							:class="`inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out`"
 						>
 							Run
 						</button>
@@ -50,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="pl-4 my-4 max-w-full">
+		<div class="pl-4 my-4 max-w-full" style="max-height: 95vh">
 			<Game :img="img" :sprite-configuration="frame" v-if="showGame" />
 		</div>
 	</div>
@@ -73,7 +80,7 @@ export default defineComponent({
 				frameWidth: 260,
 				frameHeight: 280,
 				startFrame: 0,
-				endFrame: 4,
+				endFrame: -1,
 				frameRate: 10,
 				loop: true,
 				yoyo: false
@@ -100,7 +107,11 @@ export default defineComponent({
 			state.showGame = true;
 		}
 
-		return { ...toRefs(state), setFrameHeight, runGame };
+		function reloadPage() {
+			window.location.reload();
+		}
+
+		return { ...toRefs(state), setFrameHeight, runGame, reloadPage };
 	},
 	components: {
 		FileImporter,

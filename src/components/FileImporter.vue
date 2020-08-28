@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class="mt-2 border border-gray-300 p-2 rounded-lg" v-if="imagePreview">
-			<img :src="imagePreview" alt="image preview" class="flex-auto object-center" />
+			<img :src="imagePreview" alt="image preview" class="flex-auto object-center max-h-20" />
 		</div>
 	</div>
 </template>
